@@ -1,0 +1,30 @@
+{
+  "setting": {
+    "title": "Portal Kegiatan RW 13 Plamongansari",
+    "desc": "Media publikasi kegiatan warga, kerja bakti, sosial, keamanan, laporan kegiatan, dan kebersamaan lingkungan secara online."
+  },
+  "berita": [
+    {
+      "id": 1,
+      "judul": "Kerja Bakti Lingkungan RW 13",
+      "tanggal": "2026-05-01",
+      "isi": "Warga melaksanakan kerja bakti membersihkan lingkungan, saluran air, dan area umum agar lingkungan semakin sehat dan nyaman.",
+      "foto": "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?q=80&w=1200&auto=format&fit=crop"
+    }
+  ],
+  "agenda": [
+    {
+      "id": 1,
+      "judul": "Kerja Bakti Minggu Pagi",
+      "tanggal": "2026-05-10",
+      "isi": "Pembersihan jalan lingkungan dan saluran air bersama warga."
+    }
+  ],
+  "galeri": [
+    {
+      "id": 1,
+      "judul": "Kerja Bakti Bersih Lingkungan",
+      "foto": "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?q=80&w=1200&auto=format&fit=crop"
+    }
+  ]
+}
