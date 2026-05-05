@@ -70,6 +70,25 @@ footer{padding:36px 0;background:rgba(0,0,0,.45);text-align:center;color:var(--m
 .admin-item small{color:var(--muted)}
 .notice{background:rgba(212,175,90,.12);border:1px solid rgba(212,175,90,.28);color:#ffe8ac;padding:13px;border-radius:14px;margin-bottom:14px;line-height:1.6}
 @media(max-width:720px){.form-grid{grid-template-columns:1fr}.event{grid-template-columns:1fr}.menu{width:100%}.hero{padding-top:50px}}
+
+/* LOGIN ADMIN */
+.login-panel{
+  display:none;position:fixed;inset:0;z-index:1000;background:rgba(2,6,23,.88);
+  align-items:center;justify-content:center;padding:22px
+}
+.login-box{
+  width:min(420px,100%);background:#0f1f17;border:1px solid var(--line);
+  border-radius:24px;padding:26px;box-shadow:0 25px 80px rgba(0,0,0,.55)
+}
+.login-box h2{margin-bottom:8px}
+.login-box p{color:var(--muted);font-size:14px;line-height:1.6;margin-bottom:18px}
+.login-box input{
+  width:100%;padding:14px;border-radius:14px;border:1px solid var(--line);
+  background:rgba(255,255,255,.08);color:white;outline:none;margin-bottom:12px
+}
+.login-actions{display:flex;gap:10px;flex-wrap:wrap}
+.login-note{font-size:12px;color:#ffe8ac;margin-top:12px;line-height:1.5}
+
 </style>
 </head>
 <body>
@@ -126,6 +145,24 @@ footer{padding:36px 0;background:rgba(0,0,0,.45);text-align:center;color:var(--m
   </div>
 </footer>
 
+
+<!-- LOGIN ADMIN -->
+<div class="login-panel" id="loginPanel">
+  <div class="login-box">
+    <h2><i class="fa-solid fa-lock"></i> Login Admin</h2>
+    <p>Masukkan password untuk membuka CMS Mini RW dan mengelola berita, agenda, serta galeri.</p>
+    <input id="adminPass" type="password" placeholder="Password admin" onkeydown="if(event.key==='Enter')doLogin()">
+    <div class="login-actions">
+      <button class="btn green" onclick="doLogin()"><i class="fa-solid fa-unlock"></i> Masuk Admin</button>
+      <button class="btn red" onclick="closeLogin()">Batal</button>
+    </div>
+    <div class="login-note">
+      Password default: <b>rw13admin</b><br>
+      Untuk mengganti password, edit kode: <b>const ADMIN_PASSWORD</b> di bagian script.
+    </div>
+  </div>
+</div>
+
 <!-- ADMIN PANEL -->
 <div class="admin-panel" id="adminPanel">
   <div class="admin-box">
@@ -134,7 +171,7 @@ footer{padding:36px 0;background:rgba(0,0,0,.45);text-align:center;color:var(--m
         <h2>CMS Mini RW</h2>
         <p style="color:var(--muted)">Tambah kegiatan, upload foto, edit berita tanpa coding.</p>
       </div>
-      <button class="btn red" onclick="closeAdmin()"><i class="fa-solid fa-xmark"></i> Tutup</button>
+      <div style="display:flex;gap:8px;flex-wrap:wrap"><button class="btn" onclick="logoutAdmin()"><i class="fa-solid fa-right-from-bracket"></i> Logout</button><button class="btn red" onclick="closeAdmin()"><i class="fa-solid fa-xmark"></i> Tutup</button></div>
     </div>
     <div class="notice">
       Data tersimpan di browser perangkat ini memakai <b>localStorage</b>. Untuk publish gratis di GitHub Pages, edit dari admin lalu klik <b>Export Data</b>, simpan file <b>rw-data.json</b>, lalu upload bersama <b>index.html</b>.
@@ -226,7 +263,37 @@ function render(){
   document.getElementById('galeriGrid').innerHTML=DB.galeri.map(g=>`<div class="gal" style="background-image:url('${g.foto||DEFAULT_IMG}')"><span>${g.judul}</span></div>`).join('');
   renderAdminLists();
 }
-function openAdmin(){document.getElementById('adminPanel').style.display='block';loadSetting();renderAdminLists()}
+
+const ADMIN_PASSWORD = 'rw13admin';
+function openAdmin(){
+  if(sessionStorage.getItem('rw13_admin_login') === 'yes'){
+    document.getElementById('adminPanel').style.display='block';
+    loadSetting();
+    renderAdminLists();
+  }else{
+    document.getElementById('loginPanel').style.display='flex';
+    setTimeout(()=>document.getElementById('adminPass').focus(),100);
+  }
+}
+function closeLogin(){document.getElementById('loginPanel').style.display='none';document.getElementById('adminPass').value=''}
+function doLogin(){
+  const pass=document.getElementById('adminPass').value;
+  if(pass === ADMIN_PASSWORD){
+    sessionStorage.setItem('rw13_admin_login','yes');
+    closeLogin();
+    document.getElementById('adminPanel').style.display='block';
+    loadSetting();
+    renderAdminLists();
+  }else{
+    alert('Password admin salah!');
+  }
+}
+function logoutAdmin(){
+  sessionStorage.removeItem('rw13_admin_login');
+  closeAdmin();
+  alert('Admin berhasil logout.');
+}
+
 function closeAdmin(){document.getElementById('adminPanel').style.display='none'}
 function showAdmin(id,btn){document.querySelectorAll('.admin-page').forEach(p=>p.classList.remove('active'));document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));document.getElementById(id).classList.add('active');btn.classList.add('active')}
 function loadImage(e,target){
