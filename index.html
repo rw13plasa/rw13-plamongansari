@@ -1,232 +1,297 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Portal Kegiatan RW 13 Plamongansari</title>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>CMS Mini RW 13 Plamongansari</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
 <style>
+:root{
+  --green:#14532d;--green2:#22c55e;--gold:#d4af5a;--dark:#07140e;
+  --text:#f8fafc;--muted:#cbd5e1;--card:rgba(255,255,255,.10);--line:rgba(255,255,255,.16);
+}
+*{box-sizing:border-box;margin:0;padding:0}
 body{
-margin:0;
-font-family:Arial,sans-serif;
-background:
-linear-gradient(rgba(7,20,14,.62),rgba(7,20,14,.82)),
-url('https://images.unsplash.com/photo-1529156069898-49953e39b3ac?q=80&w=1800&auto=format&fit=crop')
-center/cover fixed;
-color:white;
+  font-family:Arial,sans-serif;color:var(--text);background:
+  linear-gradient(rgba(7,20,14,.50),rgba(7,20,14,.76)),
+  url('https://images.unsplash.com/photo-1529156069898-49953e39b3ac?q=80&w=2200&auto=format&fit=crop') center/cover fixed;
 }
-header{
-padding:90px 20px;
-text-align:center;
-}
-header h1{
-font-size:58px;
-margin-bottom:10px;
-}
-header p{
-max-width:850px;
-margin:auto;
-line-height:1.8;
-font-size:18px;
-color:#ddd;
-}
-.badge{
-display:inline-block;
-padding:10px 18px;
-background:#d4af5a;
-color:#111;
-border-radius:999px;
-font-weight:bold;
-margin-bottom:20px;
-}
-.container{
-max-width:1200px;
-margin:auto;
-padding:20px;
-}
-.grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-gap:20px;
-}
-.card{
-background:rgba(255,255,255,.08);
-backdrop-filter:blur(10px);
-padding:25px;
-border-radius:22px;
-border:1px solid rgba(255,255,255,.1);
-box-shadow:0 10px 35px rgba(0,0,0,.25);
-}
-.card i{
-font-size:40px;
-color:#d4af5a;
-margin-bottom:15px;
-}
-.gallery{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-gap:18px;
-margin-top:20px;
-}
-.photo{
-height:230px;
-border-radius:20px;
-overflow:hidden;
-position:relative;
-background-size:cover;
-background-position:center;
-box-shadow:0 12px 35px rgba(0,0,0,.35);
-}
-.photo:after{
-content:'';
-position:absolute;
-inset:0;
-background:linear-gradient(to top,rgba(0,0,0,.75),transparent);
-}
-.photo span{
-position:absolute;
-left:16px;
-bottom:16px;
-z-index:2;
-font-weight:bold;
-}
-.p1{background-image:url('https://images.unsplash.com/photo-1529156069898-49953e39b3ac?q=80&w=1200&auto=format&fit=crop')}
-.p2{background-image:url('https://images.unsplash.com/photo-1511632765486-a01980e01a18?q=80&w=1200&auto=format&fit=crop')}
-.p3{background-image:url('https://images.unsplash.com/photo-1559027615-cd4628902d4a?q=80&w=1200&auto=format&fit=crop')}
-.p4{background-image:url('https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=1200&auto=format&fit=crop')}
-.section{
-padding:35px 0;
-}
-.section h2{
-font-size:42px;
-margin-bottom:12px;
-}
-.timeline{
-display:grid;
-gap:18px;
-}
-.event{
-background:rgba(255,255,255,.08);
-padding:22px;
-border-radius:18px;
-border-left:5px solid #d4af5a;
-}
-.event small{
-color:#d4af5a;
-font-weight:bold;
-}
-footer{
-margin-top:40px;
-padding:35px 20px;
-background:rgba(0,0,0,.45);
-text-align:center;
-}
-.btn{
-display:inline-block;
-padding:14px 26px;
-background:#d4af5a;
-color:#111;
-border-radius:999px;
-font-weight:bold;
-text-decoration:none;
-margin-top:16px;
-}
+a{text-decoration:none;color:inherit}
+.container{max-width:1180px;margin:auto;padding:0 20px}
+nav{position:sticky;top:0;z-index:99;background:rgba(7,20,14,.82);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.nav-inner{min-height:72px;display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap}
+.brand{display:flex;gap:12px;align-items:center}
+.logo{width:48px;height:48px;border-radius:16px;background:linear-gradient(135deg,var(--gold),#f4d88a);display:grid;place-items:center;color:#17200f;font-weight:900}
+.brand h1{font-size:18px}.brand span{font-size:12px;color:var(--muted)}
+.menu{display:flex;gap:10px;flex-wrap:wrap}
+.btn{border:0;border-radius:999px;padding:11px 17px;font-weight:800;cursor:pointer;background:rgba(255,255,255,.1);color:white;border:1px solid var(--line)}
+.btn.gold{background:linear-gradient(135deg,var(--gold),#b88b36);color:#17200f;border:0}
+.btn.green{background:#22c55e;color:#052e16;border:0}
+.btn.red{background:#ef4444;color:white;border:0}
+.hero{padding:88px 0 70px;text-align:center}
+.badge{display:inline-block;background:var(--gold);color:#17200f;border-radius:999px;padding:9px 16px;font-weight:900;margin-bottom:18px}
+.hero h2{font-size:clamp(38px,6vw,72px);line-height:1;margin-bottom:16px;text-shadow:0 15px 45px rgba(0,0,0,.45)}
+.hero p{max-width:850px;margin:auto;color:#e2e8f0;font-size:17px;line-height:1.8}
+.section{padding:42px 0}
+.head{display:flex;align-items:end;justify-content:space-between;gap:16px;margin-bottom:20px;flex-wrap:wrap}
+.head h2{font-size:34px}.head p{color:var(--muted);margin-top:6px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:22px;overflow:hidden;box-shadow:0 18px 50px rgba(0,0,0,.25);backdrop-filter:blur(10px)}
+.card-body{padding:20px}
+.card h3{font-size:21px;margin-bottom:9px}.card p{color:var(--muted);line-height:1.65;font-size:14px}
+.thumb{height:210px;background:#183a26 center/cover;border-bottom:1px solid var(--line);position:relative}
+.thumb:after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.55),transparent)}
+.meta{display:inline-flex;gap:7px;align-items:center;background:rgba(212,175,90,.16);color:#ffe8ac;border:1px solid rgba(212,175,90,.28);padding:6px 10px;border-radius:999px;font-size:12px;font-weight:800;margin-bottom:12px}
+.event{display:grid;grid-template-columns:90px 1fr;gap:14px;padding:18px}
+.datebox{background:linear-gradient(135deg,var(--gold),#b88b36);color:#17200f;border-radius:18px;display:grid;place-items:center;font-weight:900;text-align:center;padding:10px}
+.datebox span{display:block;font-size:24px;line-height:1}.datebox small{font-size:11px;text-transform:uppercase}
+.gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:15px}
+.gal{height:230px;border-radius:20px;background:#183a26 center/cover;position:relative;overflow:hidden;border:1px solid var(--line);box-shadow:0 14px 40px rgba(0,0,0,.25)}
+.gal:after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.72),transparent)}
+.gal span{position:absolute;left:15px;right:15px;bottom:14px;z-index:2;font-weight:900;text-shadow:0 4px 16px #000}
+footer{padding:36px 0;background:rgba(0,0,0,.45);text-align:center;color:var(--muted);margin-top:40px}
+
+/* ADMIN */
+.admin-panel{display:none;position:fixed;inset:0;z-index:999;background:rgba(2,6,23,.92);overflow:auto;padding:24px}
+.admin-box{max-width:1050px;margin:auto;background:#0f1f17;border:1px solid var(--line);border-radius:24px;padding:24px;box-shadow:0 25px 80px rgba(0,0,0,.55)}
+.admin-head{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:18px;flex-wrap:wrap}
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:18px}
+.tab{padding:10px 14px;border-radius:999px;border:1px solid var(--line);background:rgba(255,255,255,.08);color:white;cursor:pointer;font-weight:800}
+.tab.active{background:var(--gold);color:#17200f;border:0}
+.admin-page{display:none}.admin-page.active{display:block}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.field{margin-bottom:13px}
+.field label{display:block;color:#d4af5a;font-size:12px;text-transform:uppercase;letter-spacing:1px;font-weight:900;margin-bottom:6px}
+.field input,.field textarea,.field select{width:100%;padding:12px;border-radius:12px;border:1px solid var(--line);background:rgba(255,255,255,.08);color:white;outline:none}
+.field textarea{min-height:110px}
+.preview{max-height:120px;border-radius:12px;margin-top:8px}
+.admin-list{display:grid;gap:10px;margin-top:16px}
+.admin-item{display:flex;justify-content:space-between;gap:12px;align-items:center;background:rgba(255,255,255,.06);border:1px solid var(--line);padding:14px;border-radius:14px}
+.admin-item small{color:var(--muted)}
+.notice{background:rgba(212,175,90,.12);border:1px solid rgba(212,175,90,.28);color:#ffe8ac;padding:13px;border-radius:14px;margin-bottom:14px;line-height:1.6}
+@media(max-width:720px){.form-grid{grid-template-columns:1fr}.event{grid-template-columns:1fr}.menu{width:100%}.hero{padding-top:50px}}
 </style>
 </head>
 <body>
+<nav>
+  <div class="container nav-inner">
+    <div class="brand">
+      <div class="logo"><i class="fa-solid fa-people-roof"></i></div>
+      <div><h1 id="siteTitleNav">RW 13 Plamongansari</h1><span>Portal kegiatan & laporan warga</span></div>
+    </div>
+    <div class="menu">
+      <a class="btn" href="#berita">Berita</a>
+      <a class="btn" href="#agenda">Agenda</a>
+      <a class="btn" href="#galeri">Galeri</a>
+      <button class="btn gold" onclick="openAdmin()"><i class="fa-solid fa-user-gear"></i> Admin</button>
+    </div>
+  </div>
+</nav>
 
-<header>
-<div class="badge">RW 13 Plamongansari</div>
-<h1>Portal Kegiatan Warga</h1>
-<p>
-Portal informasi kegiatan RW 13 Plamongansari Pedurungan Semarang.
-Media publikasi kegiatan warga, kerja bakti, sosial, keamanan, dan kebersamaan lingkungan secara online.
-</p>
-
-<a class="btn" href="#kegiatan">
-<i class="fas fa-images"></i> Lihat Kegiatan
-</a>
+<header class="hero">
+  <div class="container">
+    <div class="badge">RT / RW Digital</div>
+    <h2 id="siteTitleHero">Portal Kegiatan RW 13 Plamongansari</h2>
+    <p id="siteDesc">Media publikasi kegiatan warga, kerja bakti, sosial, keamanan, laporan kegiatan, dan kebersamaan lingkungan secara online.</p>
+  </div>
 </header>
 
-<div class="container">
+<section class="section" id="berita">
+  <div class="container">
+    <div class="head"><div><h2>Berita & Laporan Kegiatan</h2><p>Informasi terbaru kegiatan warga RW 13.</p></div></div>
+    <div class="grid" id="beritaGrid"></div>
+  </div>
+</section>
 
-<div class="section">
-<h2>Program & Kegiatan Warga</h2>
+<section class="section" id="agenda">
+  <div class="container">
+    <div class="head"><div><h2>Acara yang Akan Datang</h2><p>Agenda kegiatan warga yang bisa diumumkan secara online.</p></div></div>
+    <div class="grid" id="agendaGrid"></div>
+  </div>
+</section>
 
-<div class="grid">
-
-<div class="card">
-<i class="fas fa-broom"></i>
-<h3>Kerja Bakti</h3>
-<p>Kegiatan gotong royong membersihkan lingkungan, saluran air, dan fasilitas umum.</p>
-</div>
-
-<div class="card">
-<i class="fas fa-shield-heart"></i>
-<h3>Keamanan Lingkungan</h3>
-<p>Koordinasi keamanan warga dan kegiatan ronda malam lingkungan.</p>
-</div>
-
-<div class="card">
-<i class="fas fa-hand-holding-heart"></i>
-<h3>Kegiatan Sosial</h3>
-<p>Bantuan sosial, santunan warga, dan kegiatan kemasyarakatan lainnya.</p>
-</div>
-
-<div class="card">
-<i class="fas fa-people-group"></i>
-<h3>Kebersamaan Warga</h3>
-<p>Meningkatkan guyub rukun dan kekompakan antar warga RW 13.</p>
-</div>
-
-</div>
-</div>
-
-<div class="section" id="kegiatan">
-<h2>Galeri Kegiatan</h2>
-
-<div class="gallery">
-<div class="photo p1"><span>Kerja Bakti Lingkungan</span></div>
-<div class="photo p2"><span>Rapat & Musyawarah Warga</span></div>
-<div class="photo p3"><span>Kegiatan Sosial Warga</span></div>
-<div class="photo p4"><span>Kebersamaan Guyub Rukun</span></div>
-</div>
-</div>
-
-<div class="section">
-<h2>Agenda Kegiatan Mendatang</h2>
-
-<div class="timeline">
-
-<div class="event">
-<small>Minggu Pagi</small>
-<h3>Kerja Bakti RW</h3>
-<p>Pembersihan jalan lingkungan dan saluran air bersama warga.</p>
-</div>
-
-<div class="event">
-<small>Bulan Depan</small>
-<h3>Rapat Warga RW 13</h3>
-<p>Pembahasan program lingkungan dan laporan kegiatan warga.</p>
-</div>
-
-<div class="event">
-<small>Terjadwal</small>
-<h3>Kegiatan Sosial</h3>
-<p>Pengumpulan bantuan sosial dan kegiatan kemasyarakatan warga.</p>
-</div>
-
-</div>
-</div>
-
-</div>
+<section class="section" id="galeri">
+  <div class="container">
+    <div class="head"><div><h2>Galeri Kegiatan</h2><p>Dokumentasi kerja bakti, rapat, sosial, dan kebersamaan warga.</p></div></div>
+    <div class="gallery" id="galeriGrid"></div>
+  </div>
+</section>
 
 <footer>
-<h3>Portal Kegiatan RW 13 Plamongansari</h3>
-<p>Pedurungan Semarang</p>
-<p>Dibuat oleh Ahmad Muslikin</p>
-<p>Klinik Service Elektronik . Semarang</p>
+  <div class="container">
+    <b>Portal Kegiatan RW 13 Plamongansari</b><br>
+    Pedurungan Semarang<br><br>
+    Dibuat oleh Ahmad Muslikin<br>
+    Klinik Service Elektronik . Semarang
+  </div>
 </footer>
 
+<!-- ADMIN PANEL -->
+<div class="admin-panel" id="adminPanel">
+  <div class="admin-box">
+    <div class="admin-head">
+      <div>
+        <h2>CMS Mini RW</h2>
+        <p style="color:var(--muted)">Tambah kegiatan, upload foto, edit berita tanpa coding.</p>
+      </div>
+      <button class="btn red" onclick="closeAdmin()"><i class="fa-solid fa-xmark"></i> Tutup</button>
+    </div>
+    <div class="notice">
+      Data tersimpan di browser perangkat ini memakai <b>localStorage</b>. Untuk publish gratis di GitHub Pages, edit dari admin lalu klik <b>Export Data</b>, simpan file <b>rw-data.json</b>, lalu upload bersama <b>index.html</b>.
+    </div>
+    <div class="tabs">
+      <button class="tab active" onclick="showAdmin('beritaAdmin',this)">Berita</button>
+      <button class="tab" onclick="showAdmin('agendaAdmin',this)">Agenda</button>
+      <button class="tab" onclick="showAdmin('galeriAdmin',this)">Galeri</button>
+      <button class="tab" onclick="showAdmin('settingAdmin',this)">Setting</button>
+      <button class="tab" onclick="exportData()">Export Data</button>
+      <label class="tab">Import Data <input type="file" accept=".json" onchange="importData(event)" style="display:none"></label>
+    </div>
+
+    <div class="admin-page active" id="beritaAdmin">
+      <h3>Tambah / Edit Berita</h3>
+      <input type="hidden" id="beritaId">
+      <div class="form-grid">
+        <div class="field"><label>Judul Berita</label><input id="beritaJudul" placeholder="Contoh: Kerja Bakti Bersih Lingkungan"></div>
+        <div class="field"><label>Tanggal</label><input id="beritaTanggal" type="date"></div>
+      </div>
+      <div class="field"><label>Isi Berita</label><textarea id="beritaIsi" placeholder="Tulis laporan kegiatan..."></textarea></div>
+      <div class="field"><label>Upload Foto</label><input type="file" accept="image/*" onchange="loadImage(event,'beritaFoto')"><img id="beritaFotoPreview" class="preview" style="display:none"></div>
+      <input type="hidden" id="beritaFoto">
+      <button class="btn green" onclick="saveBerita()">Simpan Berita</button>
+      <button class="btn" onclick="resetBerita()">Reset</button>
+      <div class="admin-list" id="beritaList"></div>
+    </div>
+
+    <div class="admin-page" id="agendaAdmin">
+      <h3>Tambah / Edit Agenda</h3>
+      <input type="hidden" id="agendaId">
+      <div class="form-grid">
+        <div class="field"><label>Nama Acara</label><input id="agendaJudul" placeholder="Contoh: Rapat Warga"></div>
+        <div class="field"><label>Tanggal</label><input id="agendaTanggal" type="date"></div>
+      </div>
+      <div class="field"><label>Deskripsi</label><textarea id="agendaIsi" placeholder="Keterangan acara..."></textarea></div>
+      <button class="btn green" onclick="saveAgenda()">Simpan Agenda</button>
+      <button class="btn" onclick="resetAgenda()">Reset</button>
+      <div class="admin-list" id="agendaList"></div>
+    </div>
+
+    <div class="admin-page" id="galeriAdmin">
+      <h3>Tambah / Edit Galeri</h3>
+      <input type="hidden" id="galeriId">
+      <div class="field"><label>Judul Foto</label><input id="galeriJudul" placeholder="Contoh: Gotong Royong Warga"></div>
+      <div class="field"><label>Upload Foto</label><input type="file" accept="image/*" onchange="loadImage(event,'galeriFoto')"><img id="galeriFotoPreview" class="preview" style="display:none"></div>
+      <input type="hidden" id="galeriFoto">
+      <button class="btn green" onclick="saveGaleri()">Simpan Foto</button>
+      <button class="btn" onclick="resetGaleri()">Reset</button>
+      <div class="admin-list" id="galeriList"></div>
+    </div>
+
+    <div class="admin-page" id="settingAdmin">
+      <h3>Setting Website</h3>
+      <div class="field"><label>Judul Website</label><input id="setTitle"></div>
+      <div class="field"><label>Deskripsi Website</label><textarea id="setDesc"></textarea></div>
+      <button class="btn green" onclick="saveSetting()">Simpan Setting</button>
+      <button class="btn red" onclick="resetAll()">Reset Semua Data</button>
+    </div>
+  </div>
+</div>
+
+<script>
+const DEFAULT_IMG='https://images.unsplash.com/photo-1529156069898-49953e39b3ac?q=80&w=1200&auto=format&fit=crop';
+let DB = JSON.parse(localStorage.getItem('cms_rw13_data') || 'null') || {
+  setting:{title:'Portal Kegiatan RW 13 Plamongansari',desc:'Media publikasi kegiatan warga, kerja bakti, sosial, keamanan, laporan kegiatan, dan kebersamaan lingkungan secara online.'},
+  berita:[
+    {id:1,judul:'Kerja Bakti Lingkungan RW 13',tanggal:'2026-05-01',isi:'Warga melaksanakan kerja bakti membersihkan lingkungan, saluran air, dan area umum agar lingkungan semakin sehat dan nyaman.',foto:DEFAULT_IMG},
+    {id:2,judul:'Rapat Koordinasi Warga',tanggal:'2026-05-05',isi:'Rapat warga membahas program lingkungan, keamanan, sosial, dan transparansi kegiatan RW 13 Plamongansari.',foto:'https://images.unsplash.com/photo-1511632765486-a01980e01a18?q=80&w=1200&auto=format&fit=crop'}
+  ],
+  agenda:[
+    {id:1,judul:'Kerja Bakti Minggu Pagi',tanggal:'2026-05-10',isi:'Pembersihan jalan lingkungan dan saluran air bersama warga.'},
+    {id:2,judul:'Rapat Warga RW 13',tanggal:'2026-05-17',isi:'Musyawarah program kegiatan dan laporan lingkungan.'}
+  ],
+  galeri:[
+    {id:1,judul:'Kerja Bakti Bersih Lingkungan',foto:DEFAULT_IMG},
+    {id:2,judul:'Kegiatan Sosial Warga',foto:'https://images.unsplash.com/photo-1559027615-cd4628902d4a?q=80&w=1200&auto=format&fit=crop'},
+    {id:3,judul:'Kebersamaan Guyub Rukun',foto:'https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=1200&auto=format&fit=crop'}
+  ]
+};
+function save(){localStorage.setItem('cms_rw13_data',JSON.stringify(DB));render();}
+function tgl(t){try{return new Date(t).toLocaleDateString('id-ID',{day:'numeric',month:'long',year:'numeric'})}catch(e){return t}}
+function render(){
+  document.getElementById('siteTitleNav').innerText=DB.setting.title.replace('Portal Kegiatan ','');
+  document.getElementById('siteTitleHero').innerText=DB.setting.title;
+  document.getElementById('siteDesc').innerText=DB.setting.desc;
+  document.getElementById('beritaGrid').innerHTML=DB.berita.map(b=>`<div class="card"><div class="thumb" style="background-image:url('${b.foto||DEFAULT_IMG}')"></div><div class="card-body"><div class="meta"><i class="fa-solid fa-calendar"></i>${tgl(b.tanggal)}</div><h3>${b.judul}</h3><p>${b.isi}</p></div></div>`).join('');
+  document.getElementById('agendaGrid').innerHTML=DB.agenda.map(a=>`<div class="card event"><div class="datebox"><span>${new Date(a.tanggal).getDate()||''}</span><small>${new Date(a.tanggal).toLocaleDateString('id-ID',{month:'short'})}</small></div><div><h3>${a.judul}</h3><p>${tgl(a.tanggal)}</p><p>${a.isi}</p></div></div>`).join('');
+  document.getElementById('galeriGrid').innerHTML=DB.galeri.map(g=>`<div class="gal" style="background-image:url('${g.foto||DEFAULT_IMG}')"><span>${g.judul}</span></div>`).join('');
+  renderAdminLists();
+}
+function openAdmin(){document.getElementById('adminPanel').style.display='block';loadSetting();renderAdminLists()}
+function closeAdmin(){document.getElementById('adminPanel').style.display='none'}
+function showAdmin(id,btn){document.querySelectorAll('.admin-page').forEach(p=>p.classList.remove('active'));document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));document.getElementById(id).classList.add('active');btn.classList.add('active')}
+function loadImage(e,target){
+  const file=e.target.files[0]; if(!file)return;
+  const reader=new FileReader();
+  reader.onload=()=>{document.getElementById(target).value=reader.result;let p=document.getElementById(target+'Preview');p.src=reader.result;p.style.display='block'}
+  reader.readAsDataURL(file);
+}
+function saveBerita(){
+  let id=document.getElementById('beritaId').value;
+  let obj={id:id?Number(id):Date.now(),judul:beritaJudul.value,tanggal:beritaTanggal.value,isi:beritaIsi.value,foto:beritaFoto.value||DEFAULT_IMG};
+  if(!obj.judul||!obj.tanggal){alert('Judul dan tanggal wajib diisi');return}
+  DB.berita=id?DB.berita.map(x=>x.id==id?obj:x):[obj,...DB.berita]; resetBerita(); save();
+}
+function editBerita(id){let b=DB.berita.find(x=>x.id==id);beritaId.value=b.id;beritaJudul.value=b.judul;beritaTanggal.value=b.tanggal;beritaIsi.value=b.isi;beritaFoto.value=b.foto;beritaFotoPreview.src=b.foto;beritaFotoPreview.style.display='block'}
+function delBerita(id){if(confirm('Hapus berita?')){DB.berita=DB.berita.filter(x=>x.id!=id);save()}}
+function resetBerita(){beritaId.value='';beritaJudul.value='';beritaTanggal.value='';beritaIsi.value='';beritaFoto.value='';beritaFotoPreview.style.display='none'}
+function saveAgenda(){
+  let id=agendaId.value;let obj={id:id?Number(id):Date.now(),judul:agendaJudul.value,tanggal:agendaTanggal.value,isi:agendaIsi.value};
+  if(!obj.judul||!obj.tanggal){alert('Judul dan tanggal wajib diisi');return}
+  DB.agenda=id?DB.agenda.map(x=>x.id==id?obj:x):[obj,...DB.agenda];resetAgenda();save();
+}
+function editAgenda(id){let a=DB.agenda.find(x=>x.id==id);agendaId.value=a.id;agendaJudul.value=a.judul;agendaTanggal.value=a.tanggal;agendaIsi.value=a.isi}
+function delAgenda(id){if(confirm('Hapus agenda?')){DB.agenda=DB.agenda.filter(x=>x.id!=id);save()}}
+function resetAgenda(){agendaId.value='';agendaJudul.value='';agendaTanggal.value='';agendaIsi.value=''}
+function saveGaleri(){
+  let id=galeriId.value;let obj={id:id?Number(id):Date.now(),judul:galeriJudul.value,foto:galeriFoto.value||DEFAULT_IMG};
+  if(!obj.judul){alert('Judul foto wajib diisi');return}
+  DB.galeri=id?DB.galeri.map(x=>x.id==id?obj:x):[obj,...DB.galeri];resetGaleri();save();
+}
+function editGaleri(id){let g=DB.galeri.find(x=>x.id==id);galeriId.value=g.id;galeriJudul.value=g.judul;galeriFoto.value=g.foto;galeriFotoPreview.src=g.foto;galeriFotoPreview.style.display='block'}
+function delGaleri(id){if(confirm('Hapus foto?')){DB.galeri=DB.galeri.filter(x=>x.id!=id);save()}}
+function resetGaleri(){galeriId.value='';galeriJudul.value='';galeriFoto.value='';galeriFotoPreview.style.display='none'}
+function renderAdminLists(){
+  beritaList.innerHTML=DB.berita.map(x=>`<div class="admin-item"><div><b>${x.judul}</b><br><small>${tgl(x.tanggal)}</small></div><div><button class="btn" onclick="editBerita(${x.id})">Edit</button> <button class="btn red" onclick="delBerita(${x.id})">Hapus</button></div></div>`).join('');
+  agendaList.innerHTML=DB.agenda.map(x=>`<div class="admin-item"><div><b>${x.judul}</b><br><small>${tgl(x.tanggal)}</small></div><div><button class="btn" onclick="editAgenda(${x.id})">Edit</button> <button class="btn red" onclick="delAgenda(${x.id})">Hapus</button></div></div>`).join('');
+  galeriList.innerHTML=DB.galeri.map(x=>`<div class="admin-item"><div><b>${x.judul}</b></div><div><button class="btn" onclick="editGaleri(${x.id})">Edit</button> <button class="btn red" onclick="delGaleri(${x.id})">Hapus</button></div></div>`).join('');
+}
+function loadSetting(){setTitle.value=DB.setting.title;setDesc.value=DB.setting.desc}
+function saveSetting(){DB.setting.title=setTitle.value;DB.setting.desc=setDesc.value;save();alert('Setting tersimpan')}
+function resetAll(){if(confirm('Reset semua data CMS?')){localStorage.removeItem('cms_rw13_data');location.reload()}}
+function exportData(){
+  const blob=new Blob([JSON.stringify(DB,null,2)],{type:'application/json'});
+  const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='rw-data.json';a.click();URL.revokeObjectURL(a.href);
+}
+function importData(e){
+  const f=e.target.files[0];if(!f)return;const r=new FileReader();
+  r.onload=()=>{try{DB=JSON.parse(r.result);save();alert('Data berhasil diimport')}catch(err){alert('File JSON tidak valid')}};r.readAsText(f);
+}
+
+async function loadPublishedJson(){
+  try{
+    const res = await fetch('rw-data.json?ts=' + Date.now(), {cache:'no-store'});
+    if(!res.ok){ render(); return; }
+    const json = await res.json();
+    if(json && json.setting && json.berita && json.agenda && json.galeri){
+      DB = json;
+      localStorage.setItem('cms_rw13_data', JSON.stringify(DB));
+    }
+  }catch(e){
+    // Jika rw-data.json belum ada, pakai data localStorage/default.
+  }
+  render();
+}
+loadPublishedJson();
+</script>
 </body>
 </html>
